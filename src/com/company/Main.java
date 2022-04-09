@@ -1,6 +1,5 @@
 package com.company;
 
-import java.util.Arrays;
 
 /**
  * Lefter Olexii, #18
@@ -13,7 +12,21 @@ public class Main {
      */
     private static void task20() {
         System.out.println("Task 20");
-
+        int N = 36491;
+        int tempN = N;
+        int sizeN = 0;
+        while (tempN > 0) {
+            sizeN++;
+            tempN /= 10;
+        }
+        char[] symbol = new char[sizeN];
+        for(int i=sizeN; i>0; i--){
+            symbol[i-1]= (char) (N%10+48);
+            N/=10;
+        }
+        for (int i=0; i<sizeN; i++){
+            System.out.print(symbol[i]+" ");
+        }
     }
 
     /**
@@ -26,7 +39,7 @@ public class Main {
         int ACounter = 0;
         String wordString = "ПОЕЗД КОМПЬЮТЕР МАШИНА СЛОВО ТАНК КУРИЦА";
         boolean onlyUpperKirilLetter = wordString.matches("^[А-Я\\s+]+$");
-        if ((wordString.length() != 0) && onlyUpperKirilLetter) {
+        if (onlyUpperKirilLetter) {
             for (String aWord : wordString.split("\\s+")) {
                 if (aWord.contains("А")) {
                     ACounter++;
@@ -58,7 +71,7 @@ public class Main {
 
     public static void main(String[] args) {
         task20();
-//        task43();
-//        task9();
+        task43();
+        task9();
     }
 }
