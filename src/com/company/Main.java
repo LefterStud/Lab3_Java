@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.Arrays;
+
 /**
  * Lefter Olexii, #18
  */
@@ -21,9 +23,19 @@ public class Main {
      */
     private static void task43() {
         System.out.println("\n\nTask 43");
-        int spaceCounter=0;
-        String wordString = "ПОЕЗД КОМПЬЮТЕР МАШИНА СЛОВО ТАНК";
-        System.out.print(wordString.charAt(2));
+        int ACounter = 0;
+        String wordString = "ПОЕЗД КОМПЬЮТЕР МАШИНА СЛОВО ТАНК КУРИЦА";
+        boolean onlyUpperKirilLetter = wordString.matches("^[А-Я\\s+]+$");
+        if ((wordString.length() != 0) && onlyUpperKirilLetter) {
+            for (String aWord : wordString.split("\\s+")) {
+                if (aWord.contains("А")) {
+                    ACounter++;
+                }
+            }
+            System.out.println("Вы ввели " + ACounter + " слов с буквой 'А'");
+        } else {
+            System.out.println("Данные введены неккоректно!");
+        }
     }
 
     /**
@@ -46,7 +58,7 @@ public class Main {
 
     public static void main(String[] args) {
         task20();
-        task43();
-    //    task9();
+//        task43();
+//        task9();
     }
 }
