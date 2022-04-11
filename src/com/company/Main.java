@@ -77,13 +77,16 @@ public class Main {
      */
     private static void task62() {
         System.out.println("\n\nTask 62");
-        String wordString = "Дана Строка-Предложение Заданное Кириллицей.";
+        String wordString = "Дана Строка-Предложениёе Заданное Кириллицей.";
         String newWordString=wordString;
-        boolean onlyKirilLetter = wordString.matches("^[-.,а-яА-Я\\s+]+$");
+        boolean onlyKirilLetter = wordString.matches("^[-.,а-яёЁА-Я\\s+]+$");
+        wordString = wordString.replace('ё', 'е');
+        wordString = wordString.replace('Ё', 'Е');
         if (onlyKirilLetter) {
             int tempOldChar;
             int tempNewChar;
             for (int i = 0; i < wordString.length(); i++) {
+
                 if ((wordString.charAt(i)!=' ')&&(wordString.charAt(i)!=',')&&(wordString.charAt(i)!='.')&&(wordString.charAt(i)!='-')) {
                     tempOldChar = wordString.charAt(i);
                     tempNewChar = wordString.charAt(i) + 1;
